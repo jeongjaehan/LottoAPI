@@ -63,6 +63,7 @@
 							<property name="classesToBeBound">
 								<list>
 									<value>com.lotto.dto.LottoArrayList</value>
+									<value>com.lotto.dto.LottoDTO</value>
 								</list>
 							</property>
 						</bean>

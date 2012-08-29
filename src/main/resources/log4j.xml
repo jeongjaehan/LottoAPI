@@ -42,7 +42,7 @@
 	</logger>
 	
 	
-	<logger name="com.study">
+	<logger name="com.lotto">
 		<level value="debug" />
 	</logger>
 
