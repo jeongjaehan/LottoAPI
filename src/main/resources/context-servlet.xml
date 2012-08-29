@@ -45,7 +45,6 @@
 			<map>
 				<entry key="json" value="application/json" />
 				<entry key="xml" value="application/xml" />
-				<entry key="rss" value="application/rss+xml" />
 			</map>
 		</property>
 

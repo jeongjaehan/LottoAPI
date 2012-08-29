@@ -1,5 +1,7 @@
 package com.lotto.control;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -17,12 +19,14 @@ import com.lotto.service.LottoService;
 @ResponseStatus(value = HttpStatus.ACCEPTED)
 public class LottoController {
 
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired private LottoService lottoService;
 	
 	@RequestMapping(value="{n}",method=RequestMethod.GET)
-	public String getLotto(@PathVariable int n,ModelMap model){
+	public String getLotto(@PathVariable int n, ModelMap model){
 		LottoDTO lotto  = lottoService.getLottoByNumber(n);
-		System.out.println(lotto);
+		log.info("lotto : {}",lotto.toString());
 		model.addAttribute("lotto", lotto);
 		return "result";
 	}

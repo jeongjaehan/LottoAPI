@@ -9,7 +9,7 @@ public class LottoDTO {
 	private int y;
 	private String dd;
 	private int wc1; 
-	private int wa1;
+	private long wa1;
 	private int wc2;
 	private int wa2;
 	private int wc3;
@@ -50,12 +50,12 @@ public class LottoDTO {
 	public void setWc1(int wc1) {
 		this.wc1 = wc1;
 	}
-
-	public int getWa1() {
+	
+	public long getWa1() {
 		return wa1;
 	}
 
-	public void setWa1(int wa1) {
+	public void setWa1(long wa1) {
 		this.wa1 = wa1;
 	}
 
