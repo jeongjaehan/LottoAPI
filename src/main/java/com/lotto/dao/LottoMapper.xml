@@ -4,4 +4,54 @@
 	<select id="getLottoByNumber" resultType="LottoDTO" parameterType="LottoDTO">
 		select * from lotto_results where n = ${n}
 	</select>
+	
+	<select id="getLottoLastestNO" resultType="int">
+		select max(n) from lotto_results
+	</select>
+	
+	<insert id="insertLotto" parameterType="LottoDTO">
+		insert into lotto_results ( 
+			y, 
+			n,
+			dd,
+			wc1,
+			wa1,
+			wc2,
+			wa2,
+			wc3,
+			wa3,
+			wc4,
+			wa4,
+			wc5,
+			wa5,
+			wn1,
+			wn2,
+			wn3,
+			wn4,
+			wn5,
+			wn6,
+			wnb
+		)value(
+			#{y}, 
+			#{n},
+			#{dd},
+			#{wc1},
+			#{wa1},
+			#{wc2},
+			#{wa2},
+			#{wc3},
+			#{wa3},
+			#{wc4},
+			#{wa4},
+			#{wc5},
+			#{wa5},
+			#{wn1},
+			#{wn2},
+			#{wn3},
+			#{wn4},
+			#{wn5},
+			#{wn6},
+			#{wnb}
+		)
+	</insert>
 </mapper>
