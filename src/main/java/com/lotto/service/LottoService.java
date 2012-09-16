@@ -1,5 +1,7 @@
 package com.lotto.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +13,10 @@ import com.lotto.dto.LottoDTO;
 @Transactional
 public class LottoService {
 	@Autowired private LottoMapper lottoMapper;
+	
+	public List<LottoDTO> getLottoList(LottoDTO lotto){
+		return lottoMapper.getLottoList(lotto);
+	}
 	
 	public LottoDTO getLottoByNumber(int n){
 		LottoDTO lotto = new LottoDTO();

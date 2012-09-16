@@ -48,7 +48,7 @@ public class TestDownload {
 	}
 	
 	
-//	@Test
+	@Test
 	public void testDownload()throws Exception{
 		httpDownloadService.download();
 		

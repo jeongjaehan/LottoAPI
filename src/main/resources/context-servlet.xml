@@ -61,8 +61,9 @@
 						<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 							<property name="classesToBeBound">
 								<list>
-									<value>com.lotto.dto.LottoArrayList</value>
+									<value>com.lotto.dto.LottoDTOList</value>
 									<value>com.lotto.dto.LottoDTO</value>
+									<value>com.lotto.dto.ErrorDTO</value>
 								</list>
 							</property>
 						</bean>

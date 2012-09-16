@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.lotto.dao.LottoMapper" > 
+	
+	<select id="getLottoList" resultType="LottoDTO" parameterType="LottoDTO">
+		select * from lotto_results
+	</select>
+	
 	<select id="getLottoByNumber" resultType="LottoDTO" parameterType="LottoDTO">
 		select * from lotto_results where n = ${n}
 	</select>
 	
 	<select id="getLottoLastestNO" resultType="int">
-		select max(n) from lotto_results
+		select ifnull(max(n),0) from lotto_results
 	</select>
 	
 	<insert id="insertLotto" parameterType="LottoDTO">
