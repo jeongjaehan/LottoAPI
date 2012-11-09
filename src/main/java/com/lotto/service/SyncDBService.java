@@ -66,23 +66,23 @@ public class SyncDBService {
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * TagNode -> LottoDTO type 변경
 	 * @param tdList
 	 * @return LottoDTO
 	 */
 	private LottoDTO convertTagNodeToLottoDTO(List<TagNode> tdList) {
-		
+
 		LottoDTO lottoDTO = new LottoDTO();
-		
+
 		int idx = 0;
-		
+
 		if(tdList.size()==20) //년도 포함일경우 시작은 1부터
 			idx = 1;
-		
-//		tdList 에서 가져와서 변수 세팅 시작
+
+		//		tdList 에서 가져와서 변수 세팅 시작
 		int n = Integer.parseInt(
 				tdList
 				.get(idx)
@@ -174,11 +174,11 @@ public class SyncDBService {
 				.getText()
 				.toString()
 				.replaceAll(",", "")); 
-//		tdList 에서 가져와서 변수 세팅 종료
-		
-		
-		
-//		LottoDTO 세팅 시작
+		//		tdList 에서 가져와서 변수 세팅 종료
+
+
+
+		//		LottoDTO 세팅 시작
 		lottoDTO.setY(
 				Integer.parseInt(
 						new SimpleDateFormat("yyyy",Locale.KOREA)
@@ -202,10 +202,10 @@ public class SyncDBService {
 		lottoDTO.setWn5(wn5);
 		lottoDTO.setWn6(wn6);
 		lottoDTO.setWnb(wnb);
-//		LottoDTO 세팅 종료
-		
+		//		LottoDTO 세팅 종료
+
 		return lottoDTO;
 	}
-	
+
 
 }

@@ -1,62 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
-<mapper namespace="com.lotto.dao.LottoMapper" > 
-	
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotto.dao.LottoMapper">
+
 	<select id="getLottoList" resultType="LottoDTO" parameterType="LottoDTO">
 		select * from lotto_results
 	</select>
-	
-	<select id="getLottoByNumber" resultType="LottoDTO" parameterType="LottoDTO">
+
+	<select id="getLottoByNumber" resultType="LottoDTO"
+		parameterType="LottoDTO">
 		select * from lotto_results where n = ${n}
 	</select>
-	
+
 	<select id="getLottoLastestNO" resultType="int">
-		select ifnull(max(n),0) from lotto_results
+		select
+		ifnull(max(n),0) from lotto_results
 	</select>
-	
+
 	<insert id="insertLotto" parameterType="LottoDTO">
-		insert into lotto_results ( 
-			y, 
-			n,
-			dd,
-			wc1,
-			wa1,
-			wc2,
-			wa2,
-			wc3,
-			wa3,
-			wc4,
-			wa4,
-			wc5,
-			wa5,
-			wn1,
-			wn2,
-			wn3,
-			wn4,
-			wn5,
-			wn6,
-			wnb
+		insert into lotto_results
+		(
+		y,
+		n,
+		dd,
+		wc1,
+		wa1,
+		wc2,
+		wa2,
+		wc3,
+		wa3,
+		wc4,
+		wa4,
+		wc5,
+		wa5,
+		wn1,
+		wn2,
+		wn3,
+		wn4,
+		wn5,
+		wn6,
+		wnb
 		)value(
-			#{y}, 
-			#{n},
-			#{dd},
-			#{wc1},
-			#{wa1},
-			#{wc2},
-			#{wa2},
-			#{wc3},
-			#{wa3},
-			#{wc4},
-			#{wa4},
-			#{wc5},
-			#{wa5},
-			#{wn1},
-			#{wn2},
-			#{wn3},
-			#{wn4},
-			#{wn5},
-			#{wn6},
-			#{wnb}
+		#{y},
+		#{n},
+		#{dd},
+		#{wc1},
+		#{wa1},
+		#{wc2},
+		#{wa2},
+		#{wc3},
+		#{wa3},
+		#{wc4},
+		#{wa4},
+		#{wc5},
+		#{wa5},
+		#{wn1},
+		#{wn2},
+		#{wn3},
+		#{wn4},
+		#{wn5},
+		#{wn6},
+		#{wnb}
 		)
 	</insert>
+
+	<select id="getLottoResultByWn" parameterType="map" resultType="LottoDTO">
+select * from (
+    select a.*,count(a.wn)cnt from (
+        select *,lotto_results.wn1 wn from lotto_results
+        union all
+        select *,lotto_results.wn2 wn from lotto_results
+        union all
+        select *,lotto_results.wn3 wn from lotto_results
+        union all
+        select *,lotto_results.wn4 wn from lotto_results
+        union all
+        select *,lotto_results.wn5 wn from lotto_results
+        union all
+        select *,lotto_results.wn6 wn from lotto_results
+    )a  where a.wn in(1,2,3,4,5,6) group by a.n 
+)b order by b.cnt desc
+		limit 5
+	</select>
 </mapper>

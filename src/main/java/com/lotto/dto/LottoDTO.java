@@ -25,12 +25,13 @@ public class LottoDTO {
 	private int wn5;
 	private int wn6;
 	private int wnb;
+	private int cnt;
 
 
 	public int getY() {
 		return y;
 	}
-	
+
 	public void setY(int y) {
 		this.y = y;
 	}
@@ -50,7 +51,7 @@ public class LottoDTO {
 	public void setWc1(int wc1) {
 		this.wc1 = wc1;
 	}
-	
+
 	public long getWa1() {
 		return wa1;
 	}
@@ -187,6 +188,14 @@ public class LottoDTO {
 		this.n = n;
 	}
 
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
 	@Override
 	public String toString() {
 		return "LottoDTO [n=" + n + ", y=" + y + ", dd=" + dd + ", wc1=" + wc1
@@ -194,9 +203,8 @@ public class LottoDTO {
 				+ wc3 + ", wa3=" + wa3 + ", wc4=" + wc4 + ", wa4=" + wa4
 				+ ", wc5=" + wc5 + ", wa5=" + wa5 + ", wn1=" + wn1 + ", wn2="
 				+ wn2 + ", wn3=" + wn3 + ", wn4=" + wn4 + ", wn5=" + wn5
-				+ ", wn6=" + wn6 + ", wnb=" + wnb + "]";
+				+ ", wn6=" + wn6 + ", wnb=" + wnb + ", cnt=" + cnt + "]";
 	}
-	
-	
+
 
 }

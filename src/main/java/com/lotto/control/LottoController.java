@@ -1,5 +1,6 @@
 package com.lotto.control;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +45,7 @@ public class LottoController {
 		return "result";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="all",method=RequestMethod.GET)
 	public String getLottoList(ModelMap model , LottoDTO lotto , HttpServletResponse response){
 		List<LottoDTO> lottoList = lottoService.getLottoList(lotto);
 		LottoDTOList lottoDTOList = new LottoDTOList();
@@ -52,6 +53,20 @@ public class LottoController {
 		model.addAttribute("lottoList", lottoDTOList);
 		return "result";
 	}
+	
+	@RequestMapping(value="wn/{wn_array}",method=RequestMethod.GET)
+	public String getLottoResultByWn(@PathVariable int[] wn_array,ModelMap model , HttpServletResponse response){
+		String wn_list = Arrays.toString(wn_array).replace("[", "").replace("]", "").replaceAll(" ", "");
+		List<LottoDTO> result_list = lottoService.getLottoResultByWn(wn_list);
+		log.debug(result_list.toString());
+		
+		LottoDTOList lottoDTOList = new LottoDTOList();
+		lottoDTOList.setLottoList(result_list);
+		model.addAttribute("lottoList", lottoDTOList);
+		return "result";
+	}
+	
+	
 
 /*	@ResponseStatus(value=HttpStatus.NOT_FOUND)
 	@ExceptionHandler(Exception.class)

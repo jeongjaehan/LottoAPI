@@ -1,6 +1,8 @@
 package com.lotto.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +24,11 @@ public class LottoService {
 		LottoDTO lotto = new LottoDTO();
 		lotto.setN(n);
 		return lottoMapper.getLottoByNumber(lotto);
+	}
+	
+	public List<LottoDTO> getLottoResultByWn(String wn_list){
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("wn_list", wn_list);
+		return lottoMapper.getLottoResultByWn(params);
 	}
 }
