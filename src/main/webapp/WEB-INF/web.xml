@@ -4,22 +4,26 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	<!-- Java-based Spring container definition -->
 	<context-param>
-		<param-name>contextClass</param-name>
-		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    	<param-name>contextClass</param-name>
+    	<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+	</context-param>
+
+	<!-- Location of Java @Configuration classes that configure the components that makeup this application -->
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>spring.context</param-value>
 	</context-param>
 	
+	<!-- Use the simplified configuration by default. -->
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>com.lotto.spring.context.AppContext</param-value>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>simple</param-value>
 	</context-param>
 
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-
-
 </web-app>
