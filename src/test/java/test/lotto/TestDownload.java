@@ -59,7 +59,7 @@ public class TestDownload {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testServiceSyncDB() throws Exception{
 		syncDBService.syncDB();
 	}
