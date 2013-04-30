@@ -39,7 +39,7 @@ public class TestDownload {
 	
 	
 	
-	@Test
+//	@Test
 	public void testDownload()throws Exception{
 		httpDownloadService.download();
 		
@@ -50,9 +50,14 @@ public class TestDownload {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testServiceSyncDB() throws Exception{
 		syncDBService.syncDB();
+	}
+	
+	@Test
+	public void lastLottoNumber() throws Exception{
+		lottoMapper.getLottoLastestNO();
 	}
 
 	
