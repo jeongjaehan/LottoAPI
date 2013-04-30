@@ -40,6 +40,11 @@ public class SyncDBService {
 		String today = formatter.format(downloadDate);
 
 		String target_file = file_path + file_prefix + today +file_subfix;
+		
+		if(System.getProperty("os.name").toUpperCase().startsWith("WINDOWS")){
+			target_file = "D:/tmp/" + file_prefix + today +file_subfix;
+		}
+		
 		TagNode node = hc.clean(new File(target_file));
 
 		TagNode[] nodes = node.getElementsByName("tr",true);	// tr 노드 추출

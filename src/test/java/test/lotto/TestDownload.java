@@ -32,20 +32,11 @@ public class TestDownload {
 	@Value(value="#{prop['download.file_prefix']}") private String file_prefix;
 	@Value(value="#{prop['download.file_subfix']}") private String file_subfix;
 	
-	private String target_file; 
 	
 	@Autowired HttpDownloadService httpDownloadService;
 	@Autowired SyncDBService syncDBService; 
 	@Autowired LottoMapper lottoMapper;
 	
-	@Before
-	public void setUp(){
-		Date downloadDate = new Date();
-		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMdd",Locale.KOREA);
-		String today = formatter.format(downloadDate);
-		
-		target_file = file_path + file_prefix + today +file_subfix;
-	}
 	
 	
 	@Test

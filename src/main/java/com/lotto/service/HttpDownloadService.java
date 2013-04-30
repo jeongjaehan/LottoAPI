@@ -31,7 +31,12 @@ public class HttpDownloadService {
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMdd",Locale.KOREA);
 		String today = formatter.format(downloadDate);
 		
+		
 		String target_file = file_path + file_prefix + today +file_subfix;
+		
+		if(System.getProperty("os.name").toUpperCase().startsWith("WINDOWS")){
+			target_file = "D:/tmp/" + file_prefix + today +file_subfix;
+		}
 		
 		logger.debug("다운로드 시작 [{}]",target_file);
 		
